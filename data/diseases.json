@@ -1,0 +1,30 @@
+{
+  "fever": {
+    "english": "Fever is when your body temperature rises above normal (98.6°F). Common symptoms include high temperature, headache, body pain, and weakness. This usually happens when your body fights infection from viruses or bacteria. To manage fever, take proper rest, drink plenty of water and fluids, and take paracetamol if needed. Visit a doctor if fever exceeds 103°F or continues for more than 3 days.",
+    "odia": "ଜ୍ୱର ହେଉଛି ଯେତେବେଳେ ଆପଣଙ୍କ ଶରୀରର ତାପମାତ୍ରା ସାଧାରଣଠାରୁ ଅଧିକ ହୋଇଯାଏ। ମୁଖ୍ୟ ଲକ୍ଷଣଗୁଡ଼ିକ ହେଲା ଉଚ୍ଚ ତାପମାତ୍ରା, ମୁଣ୍ଡବିନ୍ଧା, ଶରୀର ଯନ୍ତ୍ରଣା ଏବଂ ଦୁର୍ବଳତା। ଏହା ସାଧାରଣତଃ ଭାଇରାସ୍ କିମ୍ବା ବ୍ୟାକ୍ଟେରିଆ ସଂକ୍ରମଣ ସମୟରେ ହୋଇଥାଏ। ଜ୍ୱର ପାଇଁ ଭଲ ବିଶ୍ରାମ ନିଅନ୍ତୁ, ପ୍ରଚୁର ପାଣି ଓ ତରଳ ପଦାର୍ଥ ପିଅନ୍ତୁ ଏବଂ ଆବଶ୍ୟକ ହେଲେ ପାରାସେଟାମଲ ସେବନ କରନ୍ତୁ। ଯଦି ଜ୍ୱର ୧୦୩°F ରୁ ଅଧିକ ହୁଏ କିମ୍ବା ୩ ଦିନରୁ ଅଧିକ ରହେ ତେବେ ଡାକ୍ତରଙ୍କ ସହିତ ପରାମର୍ଶ କରନ୍ତୁ।",
+    "hindi": "बुखार तब होता है जब आपके शरीर का तापमान सामान्य से अधिक हो जाता है। मुख्य लक्षण हैं तेज बुखार, सिरदर्द, शरीर में दर्द और कमजोरी। यह आमतौर पर वायरल या बैक्टीरियल संक्रमण से होता है। बुखार के लिए अच्छी तरह आराम करें, खूब पानी पिएं और जरूरत हो तो पैरासिटामोल लें। अगर बुखार 103°F से ज्यादा हो या 3 दिन से अधिक रहे तो डॉक्टर से मिलें।",
+    "emergency_threshold": 103,
+    "symptoms": ["high_temperature", "headache", "body_pain", "weakness"]
+  },
+  "cold": {
+    "english": "Common cold is a viral infection that affects your nose and throat. Symptoms include runny nose, sneezing, cough, sore throat, and mild headache. It spreads through droplets when infected people cough or sneeze. Cold usually gets better on its own in 7-10 days. To feel better, rest well, drink warm water, gargle with salt water, and avoid cold foods. Wash hands frequently to prevent spreading to others.",
+    "odia": "ଶର୍ଦି ହେଉଛି ଏକ ଭାଇରାଲ୍ ସଂକ୍ରମଣ ଯାହା ନାକ ଓ ଗଳାକୁ ପ୍ରଭାବିତ କରେ। ଲକ୍ଷଣଗୁଡ଼ିକ ହେଲା ନାକ ପାଣି ଝରିବା, ଛିଙ୍କିବା, କାଶ, ଗଳା ଯନ୍ତ୍ରଣା ଏବଂ ହାଲକା ମୁଣ୍ଡବିନ୍ଧା। ସଂକ୍ରମିତ ବ୍ୟକ୍ତି କାଶ କିମ୍ବା ଛିଙ୍କିଲେ ଏହା ଫୁଟା ଦ୍ୱାରା ବ୍ୟାପିଥାଏ। ଶର୍ଦି ସାଧାରଣତଃ ୭-୧୦ ଦିନରେ ନିଜେ ଭଲ ହୋଇଯାଏ। ଭଲ ଲାଗିବା ପାଇଁ ଭଲ ବିଶ୍ରାମ ନିଅନ୍ତୁ, ଗରମ ପାଣି ପିଅନ୍ତୁ, ଲୁଣ ପାଣିରେ ଗର୍ଗଲ୍ କରନ୍ତୁ ଏବଂ ଥଣ୍ଡା ଖାଦ୍ୟ ଏଡ଼ାନ୍ତୁ। ଅନ୍ୟମାନଙ୍କୁ ବ୍ୟାପିବା ରୋକିବା ପାଇଁ ବାରମ୍ବାର ହାତ ଧୋଇନ୍ତୁ।",
+    "hindi": "सर्दी एक वायरल संक्रमण है जो नाक और गले को प्रभावित करती है। लक्षणों में नाक बहना, छींकना, खांसी, गले में खराश शामिल है। यह खांसी-छींक की बूंदों से फैलती है। सर्दी आमतौर पर 7-10 दिन में अपने आप ठीक हो जाती है। बेहतर महसूस करने के लिए अच्छा आराम करें, गर्म पानी पिएं, नमक के पानी से गरारे करें और ठंडा खाना न खाएं।",
+    "emergency_threshold": null,
+    "symptoms": ["runny_nose", "sneezing", "cough", "sore_throat", "mild_headache"]
+  },
+  "malaria": {
+    "english": "Malaria is a serious disease caused by mosquito bites, specifically Anopheles mosquitoes. Symptoms include high fever with chills, severe headache, vomiting, sweating, and body aches. If left untreated, it can become life-threatening. Prevention is key - sleep under mosquito nets, use mosquito repellent, keep surroundings clean, and remove stagnant water where mosquitoes breed. If you suspect malaria, get blood test done immediately and consult doctor for proper treatment.",
+    "odia": "ମଲେରିଆ ଏକ ଗମ୍ଭୀର ରୋଗ ଯାହା ମଶାରୀ କାମୁଡ଼ାଦ୍ୱାରା ହୋଇଥାଏ, ବିଶେଷକରି ଆନୋଫିଲିସ୍ ମଶାରୀ। ଲକ୍ଷଣଗୁଡ଼ିକ ହେଲା କମ୍ପନ ସହିତ ଉଚ୍ଚ ଜ୍ୱର, ଗଭୀର ମୁଣ୍ଡବିନ୍ଧା, ବାନ୍ତି, ଝାଳ ଏବଂ ଶରୀର ଯନ୍ତ୍ରଣା। ଚିକିତ୍ସା ନ କରାଗଲେ ଏହା ଜୀବନ ପ୍ରତି ବିପଦଜନକ ହୋଇପାରେ। ପ୍ରତିରୋଧ ମୁଖ୍ୟ - ମଶାରୀ ଜାଲ ତଳେ ଶୋଇନ୍ତୁ, ମଶାରୀ ମାରକ ବ୍ୟବହାର କରନ୍ତୁ, ଚାରିପାଖ ସଫା ରଖନ୍ତୁ ଏବଂ ରହିଯାଇଥିବା ପାଣି ସରାନ୍ତୁ ଯେଉଁଠାରେ ମଶାରୀ ବଂଶବିସ୍ତାର କରେ। ମଲେରିଆ ସନ୍ଦେହ ହେଲେ ତୁରନ୍ତ ରକ୍ତ ପରୀକ୍ଷା କରାନ୍ତୁ ଏବଂ ଉପଯୁକ୍ତ ଚିକିତ୍ସା ପାଇଁ ଡାକ୍ତରଙ୍କ ପରାମର୍ଶ ନିଅନ୍ତୁ।",
+    "hindi": "मलेरिया एक गंभीर बीमारी है जो मच्छर के काटने से होती है, खासकर एनोफिलीज मच्छर से। लक्षणों में कंपकंपी के साथ तेज बुखार, सिरदर्द, उल्टी शामिल है। बचाव के लिए मच्छरदानी का इस्तेमाल करें, आसपास पानी जमा न होने दें। संदेह होने पर तुरंत खून की जांच कराएं।",
+    "emergency_threshold": null,
+    "symptoms": ["high_fever_with_chills", "severe_headache", "vomiting", "sweating", "body_aches"]
+  },
+  "dengue": {
+    "english": "Dengue is a viral fever transmitted by Aedes mosquitoes. Symptoms include sudden high fever, severe headache, eye pain, muscle and joint pains, and skin rash. In severe cases, it can cause bleeding and become life-threatening. There's no specific medicine for dengue, so prevention is crucial. Remove all stagnant water from flower pots, containers, and coolers. Use mosquito repellent and wear full-sleeve clothes. If symptoms appear, drink plenty of fluids, take rest, and consult doctor immediately. Never take aspirin during dengue fever.",
+    "odia": "ଡେଙ୍ଗୁ ଏକ ଭାଇରାଲ୍ ଜ୍ୱର ଯାହା ଏଡିସ୍ ମଶାରୀ ଦ୍ୱାରା ବ୍ୟାପିଥାଏ। ଲକ୍ଷଣଗୁଡ଼ିକ ହେଲା ହଠାତ୍ ଉଚ୍ଚ ଜ୍ୱର, ଗଭୀର ମୁଣ୍ଡବିନ୍ଧା, ଆଖି ଯନ୍ତ୍ରଣା, ମାଂସପେଶୀ ଓ ଗଣ୍ଠି ଯନ୍ତ୍ରଣା ଏବଂ ଚର୍ମରେ ଦାଗ। ଗମ୍ଭୀର ଅବସ୍ଥାରେ ରକ୍ତପାତ ହୋଇ ଜୀବନ ପ୍ରତି ବିପଦ ସୃଷ୍ଟି କରିପାରେ। ଡେଙ୍ଗୁ ପାଇଁ କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ଔଷଧ ନାହିଁ, ତେଣୁ ପ୍ରତିରୋଧ ଜରୁରୀ। ଫୁଲ ପାତ୍ର, ପାତ୍ର ଓ କୁଲରରୁ ସମସ୍ତ ରୁହିଯାଇଥିବା ପାଣି ସରାନ୍ତୁ। ମଶାରୀ ମାରକ ବ୍ୟବହାର କରନ୍ତୁ ଏବଂ ପୂର୍ଣ୍ଣ ହାତର ପୋଷାକ ପରିଧାନ କରନ୍ତୁ। ଲକ୍ଷଣ ଦେଖାଗଲେ ପ୍ରଚୁର ତରଳ ପଦାର୍ଥ ପିଅନ୍ତୁ, ବିଶ୍ରାମ ନିଅନ୍ତୁ ଏବଂ ତୁରନ୍ତ ଡାକ୍ତରଙ୍କ ପରାମର୍ଶ ନିଅନ୍ତୁ। ଡେଙ୍ଗୁ ଜ୍ୱର ସମୟରେ କଦାପି ଆସ୍ପିରିନ୍ ନିଅନ୍ତୁ ନାହିଁ।",
+    "hindi": "डेंगू एक वायरल बुखार है जो एडीज मच्छर से फैलता है। लक्षणों में अचानक तेज बुखार, सिरदर्द, आंखों में दर्द, मांसपेशियों में दर्द शामिल है। बचाव के लिए पानी जमा न होने दें, मच्छर भगाने वाली दवा का इस्तेमाल करें। लक्षण दिखने पर तुरंत डॉक्टर से मिलें।",
+    "emergency_threshold": null,
+    "symptoms": ["sudden_high_fever", "severe_headache", "eye_pain", "muscle_joint_pain", "skin_rash"]
+  }
+}
