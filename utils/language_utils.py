@@ -172,7 +172,14 @@ def normalize_vaccine_name(vaccine_input):
         'hepatitis': 'hepatitis_b',
         'hepatitis b': 'hepatitis_b',
         'ହେପାଟାଇଟିସ': 'hepatitis_b',
-        'हेपेटाइटिस': 'hepatitis_b'
+        'हेपेटाइटिस': 'hepatitis_b',
+        
+        # Asthma mappings
+        'asthma': 'asthma',
+        'ଆଜମା': 'asthma',
+        'अस्थमा': 'asthma',
+        'wheeze': 'asthma',
+        'breathing problem': 'asthma'
     }
     
     if not vaccine_input:

@@ -26,5 +26,12 @@
     "hindi": "डेंगू एक वायरल बुखार है जो एडीज मच्छर से फैलता है। लक्षणों में अचानक तेज बुखार, सिरदर्द, आंखों में दर्द, मांसपेशियों में दर्द शामिल है। बचाव के लिए पानी जमा न होने दें, मच्छर भगाने वाली दवा का इस्तेमाल करें। लक्षण दिखने पर तुरंत डॉक्टर से मिलें।",
     "emergency_threshold": null,
     "symptoms": ["sudden_high_fever", "severe_headache", "eye_pain", "muscle_joint_pain", "skin_rash"]
+  },
+  "asthma": {
+  "english": "Asthma is a chronic condition where airways become narrow and inflamed, making breathing difficult. Symptoms include wheezing, shortness of breath, chest tightness, and persistent cough, especially at night or early morning. Common triggers are allergens (dust, pollen), smoke, cold air, exercise, and stress. Management includes avoiding triggers, using prescribed inhalers (rescue and controller medications), monitoring symptoms, and having an action plan. During an asthma attack, use rescue inhaler immediately and seek medical help if breathing doesn't improve.",
+  "odia": "ଆଜମା ଏକ ଦୀର୍ଘସ୍ଥାୟୀ ରୋଗ ଯେଉଁଥିରେ ଶ୍ୱାସନଳୀ ସଂକୀର୍ଣ୍ଣ ଓ ପ୍ରଦାହିତ ହୋଇ ଶ୍ୱାସ ନେବାରେ କଷ୍ଟ ହୋଇଥାଏ। ଲକ୍ଷଣଗୁଡ଼ିକ ହେଲା ଶ୍ୱାସରେ ଶବ୍ଦ, ଶ୍ୱାସ ନେବାରେ କଷ୍ଟ, ଛାତି ଟାଣ ଲାଗିବା ଏବଂ କାଶ। ଚିକିତ୍ସା ପାଇଁ ଇନହେଲର ବ୍ୟବହାର କରନ୍ତୁ, ଧୂଳି ଓ ଧୂଆଁରୁ ଦୂରେ ରୁହନ୍ତୁ ଏବଂ ଡାକ୍ତରଙ୍କ ପରାମର୍ଶ ନିଅନ୍ତୁ।",
+  "hindi": "अस्थमा एक दीर्घकालिक बीमारी है जिसमें सांस की नली संकरी और सूजी हुई हो जाती है। लक्षणों में सांस लेते समय आवाज, सांस फूलना, छाती में जकड़न और खांसी शामिल है। इलाज के लिए इन्हेलर का इस्तेमाल करें, धूल-धुएं से बचें और डॉक्टर की सलाह लें।",
+  "emergency_threshold": null,
+  "symptoms": ["wheezing", "shortness_of_breath", "chest_tightness", "persistent_cough"]
   }
 }
