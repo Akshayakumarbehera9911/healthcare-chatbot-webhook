@@ -89,7 +89,7 @@ def process_intent(intent_name, parameters, query_text, language):
     
     # Vaccination Intent
     elif intent_name in ['vaccine_info', 'vaccination', 'get_vaccine_info']:
-        vaccine_name = parameters.get('vaccine', '')
+        vaccine_name = parameters.get('vaccine', [])
         if not vaccine_name:
             # Check for baby/schedule keywords
             if any(word in query_text.lower() for word in ['baby', 'बच्चा', 'ବାଚ୍ଚା', 'schedule', 'शेड्यूल', 'କାର୍ଯ୍ୟସୂଚୀ']):
