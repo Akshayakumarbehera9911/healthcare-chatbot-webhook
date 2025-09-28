@@ -19,7 +19,7 @@ def get_vaccine_info(vaccine_name=None, language='english'):
     """Get vaccination information in specified language"""
     vaccines, phrases = load_vaccine_data()
     
-    if not vaccine_name or vaccine_name.lower() in ['baby', 'schedule', 'complete', 'all']:
+    if not vaccine_name or str(vaccine_name).lower() in ['baby', 'schedule', 'complete', 'all']:
         # Return complete vaccination schedule
         if 'complete_schedule' in vaccines:
             response = vaccines['complete_schedule'][language]
@@ -27,7 +27,7 @@ def get_vaccine_info(vaccine_name=None, language='english'):
             response = get_complete_schedule_manual(vaccines, language)
     else:
         # Return specific vaccine information
-        vaccine_name = vaccine_name.lower().replace(' ', '_')
+        vaccine_name = str(vaccine_name).lower().replace(' ', '_')
         
         # Handle vaccine name variations
         vaccine_mapping = {
