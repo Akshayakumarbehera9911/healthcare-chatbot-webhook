@@ -27,7 +27,15 @@ SESSION_ID = "default-session"  # Can be any unique identifier
 def get_dialogflow_client():
     """Initialize Dialogflow client with credentials"""
     try:
-        credentials = service_account.Credentials.from_service_account_file(CREDENTIALS_PATH)
+        # Try environment variable first (for Render deployment)
+        credentials_json = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON')
+        if credentials_json:
+            credentials_info = json.loads(credentials_json)
+            credentials = service_account.Credentials.from_service_account_info(credentials_info)
+        else:
+            # Fallback to file (for local development)
+            credentials = service_account.Credentials.from_service_account_file(CREDENTIALS_PATH)
+        
         client = dialogflow.SessionsClient(credentials=credentials)
         return client
     except Exception as e:
