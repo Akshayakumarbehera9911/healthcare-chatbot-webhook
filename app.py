@@ -100,7 +100,7 @@ def whatsapp_webhook():
                         'intent': {
                             'displayName': dialogflow_response.query_result.intent.display_name
                         },
-                        'parameters': dict(dialogflow_response.query_result.parameters),
+                        'parameters': {k: (v[0] if isinstance(v, list) and len(v) == 1 else str(v)) for k, v in dialogflow_response.query_result.parameters.items()},
                         'queryText': message_body
                     }
                 }
@@ -218,11 +218,15 @@ def process_intent(intent_name, parameters, query_text, language):
         vaccine_name = parameters.get('vaccine', '')
         if isinstance(vaccine_name, list) and vaccine_name:
             vaccine_name = vaccine_name[0]
-        elif not vaccine_name:
+
+        # Convert to string to handle any remaining objects
+        vaccine_name = str(vaccine_name) if vaccine_name else ''
+
+        if not vaccine_name:
             # Check for baby/schedule keywords
             if any(word in query_text.lower() for word in ['baby', 'बच्चा', 'ବାଚ୍ଚା', 'schedule', 'शेड्यूल', 'କାର୍ଯ୍ୟସୂଚୀ']):
                 vaccine_name = 'complete'
-        
+
         if not vaccine_name:
             vaccine_name = 'complete'
             
