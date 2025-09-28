@@ -215,7 +215,7 @@ def process_intent(intent_name, parameters, query_text, language):
     
     # Vaccination Intent
     elif intent_name in ['vaccine_info', 'vaccination', 'get_vaccine_info']:
-        vaccine_name = parameters.get('vaccine', [])
+        vaccine_name = parameters.get('vaccine', '')
         if isinstance(vaccine_name, list) and vaccine_name:
             vaccine_name = vaccine_name[0]
         elif not vaccine_name:
@@ -223,6 +223,9 @@ def process_intent(intent_name, parameters, query_text, language):
             if any(word in query_text.lower() for word in ['baby', 'बच्चा', 'ବାଚ୍ଚା', 'schedule', 'शेड्यूल', 'କାର୍ଯ୍ୟସୂଚୀ']):
                 vaccine_name = 'complete'
         
+        if not vaccine_name:
+            vaccine_name = 'complete'
+            
         normalized_vaccine = normalize_vaccine_name(vaccine_name)
         return get_vaccine_info(normalized_vaccine, language)
         
