@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import json
 import os
+import requests
 from utils.disease_handler import get_disease_info, detect_language as detect_lang_disease
 from utils.vaccine_handler import get_vaccine_info, get_vaccination_reminder
 from utils.language_utils import (
@@ -24,7 +25,54 @@ def health_check():
         'supported_diseases': ['fever', 'cold', 'malaria', 'dengue'],
         'supported_vaccines': ['bcg', 'opv', 'dpt', 'measles', 'hepatitis_b']
     })
+@app.route('/whatsapp', methods=['POST'])
+def whatsapp_webhook():
+    """Handle incoming WhatsApp messages from Twilio"""
+    try:
+        # Get message data from Twilio
+        from_number = request.form.get('From', '').replace('whatsapp:', '')
+        message_body = request.form.get('Body', '')
+        
+        if not message_body:
+            return '', 200
+        
+        # Detect language and process message
+        language = detect_language(message_body)
+        response_text = handle_whatsapp_message(message_body, language)
+        
+        # Send response back through Twilio
+        send_whatsapp_message(from_number, response_text)
+        return '', 200
+        
+    except Exception as e:
+        print(f"WhatsApp error: {str(e)}")
+        return '', 500
 
+def handle_whatsapp_message(message, language):
+    """Process WhatsApp message"""
+    disease = extract_disease_from_query(message)
+    if disease:
+        return get_disease_info(disease, language, message)
+    
+    vaccine_keywords = ['vaccine', 'टीका', 'ଟିକା', 'baby', 'बच्चा', 'ବାଚ୍ଚା']
+    if any(keyword in message.lower() for keyword in vaccine_keywords):
+        return get_vaccine_info('complete', language)
+    
+    return get_greeting_response(language)
+
+def send_whatsapp_message(to_number, message):
+    """Send WhatsApp message via Twilio"""
+    TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
+    TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
+    
+    url = f"https://api.twilio.com/2010-04-01/Accounts/{TWILIO_ACCOUNT_SID}/Messages.json"
+    data = {
+        'From': 'whatsapp:+14155238886',
+        'To': f'whatsapp:{to_number}',
+        'Body': message
+    }
+    
+    requests.post(url, data=data, auth=(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN))
 @app.route('/webhook', methods=['POST'])
 def webhook():
     """Main webhook endpoint for Dialogflow"""
