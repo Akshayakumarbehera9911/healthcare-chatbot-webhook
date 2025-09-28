@@ -13,7 +13,46 @@ from utils.language_utils import (
     extract_temperature
 )
 
+# ADD THESE NEW IMPORTS
+from google.cloud import dialogflow
+from google.oauth2 import service_account
+
 app = Flask(__name__)
+
+# ADD THESE NEW GLOBAL VARIABLES
+PROJECT_ID = "arovi-nahi"  # Your Google Cloud Project ID
+CREDENTIALS_PATH = "credentials.json"  # Path to your JSON credentials file
+SESSION_ID = "default-session"  # Can be any unique identifier
+
+def get_dialogflow_client():
+    """Initialize Dialogflow client with credentials"""
+    try:
+        credentials = service_account.Credentials.from_service_account_file(CREDENTIALS_PATH)
+        client = dialogflow.SessionsClient(credentials=credentials)
+        return client
+    except Exception as e:
+        print(f"Error initializing Dialogflow client: {str(e)}")
+        return None
+
+def call_dialogflow_detect_intent(message_text, session_id=SESSION_ID):
+    """Call Dialogflow's detectIntent API"""
+    try:
+        client = get_dialogflow_client()
+        if not client:
+            return None
+            
+        session_path = client.session_path(PROJECT_ID, session_id)
+        text_input = dialogflow.TextInput(text=message_text, language_code="en-US")
+        query_input = dialogflow.QueryInput(text=text_input)
+        
+        response = client.detect_intent(
+            request={"session": session_path, "query_input": query_input}
+        )
+        
+        return response
+    except Exception as e:
+        print(f"Error calling Dialogflow: {str(e)}")
+        return None
 
 @app.route('/', methods=['GET'])
 def health_check():
@@ -25,9 +64,10 @@ def health_check():
         'supported_diseases': ['fever', 'cold', 'malaria', 'dengue'],
         'supported_vaccines': ['bcg', 'opv', 'dpt', 'measles', 'hepatitis_b']
     })
+
 @app.route('/whatsapp', methods=['POST'])
 def whatsapp_webhook():
-    """Handle incoming WhatsApp messages from Twilio"""
+    """Handle incoming WhatsApp messages from Twilio - NOW ROUTES THROUGH DIALOGFLOW"""
     try:
         # Get message data from Twilio
         from_number = request.form.get('From', '').replace('whatsapp:', '')
@@ -36,11 +76,35 @@ def whatsapp_webhook():
         if not message_body:
             return '', 200
         
-        # Detect language and process message
-        language = detect_language(message_body)
-        response_text = handle_whatsapp_message(message_body, language)
+        # STEP 1: Send message to Dialogflow for intent detection
+        dialogflow_response = call_dialogflow_detect_intent(message_body, from_number)
         
-        # Send response back through Twilio
+        if dialogflow_response:
+            # STEP 2: Dialogflow processed successfully - extract the response
+            response_text = dialogflow_response.query_result.fulfillment_text
+            
+            # If Dialogflow has no fulfillment text, it means it should call our webhook
+            # In that case, we simulate the webhook call
+            if not response_text:
+                # Simulate webhook request structure
+                mock_request = {
+                    'queryResult': {
+                        'intent': {
+                            'displayName': dialogflow_response.query_result.intent.display_name
+                        },
+                        'parameters': dict(dialogflow_response.query_result.parameters),
+                        'queryText': message_body
+                    }
+                }
+                
+                # Call our existing webhook logic
+                response_text = process_webhook_request(mock_request)
+        else:
+            # FALLBACK: If Dialogflow fails, use old direct processing
+            language = detect_language(message_body)
+            response_text = handle_whatsapp_message_fallback(message_body, language)
+        
+        # STEP 3: Send response back to WhatsApp
         send_whatsapp_message(from_number, response_text)
         return '', 200
         
@@ -48,8 +112,30 @@ def whatsapp_webhook():
         print(f"WhatsApp error: {str(e)}")
         return '', 500
 
-def handle_whatsapp_message(message, language):
-    """Process WhatsApp message"""
+def process_webhook_request(mock_request):
+    """Process the webhook request (used for both real webhook and WhatsApp simulation)"""
+    try:
+        # Extract key information
+        intent_name = mock_request.get('queryResult', {}).get('intent', {}).get('displayName', '')
+        parameters = mock_request.get('queryResult', {}).get('parameters', {})
+        query_text = mock_request.get('queryResult', {}).get('queryText', '')
+        
+        # Detect language
+        language = detect_language(query_text)
+        dialogflow_lang = get_language_from_dialogflow(parameters)
+        if dialogflow_lang != 'english':
+            language = dialogflow_lang
+        
+        # Process based on intent
+        response_text = process_intent(intent_name, parameters, query_text, language)
+        return response_text
+        
+    except Exception as e:
+        print(f"Webhook processing error: {str(e)}")
+        return "Sorry, something went wrong. Please try again."
+
+def handle_whatsapp_message_fallback(message, language):
+    """FALLBACK: Process WhatsApp message directly (if Dialogflow fails)"""
     disease = extract_disease_from_query(message)
     if disease:
         return get_disease_info(disease, language, message)
@@ -73,6 +159,7 @@ def send_whatsapp_message(to_number, message):
     }
     
     requests.post(url, data=data, auth=(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN))
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
     """Main webhook endpoint for Dialogflow"""
@@ -83,25 +170,8 @@ def webhook():
         if not req:
             return jsonify({'fulfillmentText': 'Invalid request'})
         
-        # Extract key information
-        intent_name = req.get('queryResult', {}).get('intent', {}).get('displayName', '')
-        parameters = req.get('queryResult', {}).get('parameters', {})
-        query_text = req.get('queryResult', {}).get('queryText', '')
-        
-        print(f"Intent: {intent_name}")
-        print(f"Parameters: {parameters}")
-        print(f"Query: {query_text}")
-        
-        # Detect language
-        language = detect_language(query_text)
-        dialogflow_lang = get_language_from_dialogflow(parameters)
-        if dialogflow_lang != 'english':
-            language = dialogflow_lang
-        
-        print(f"Detected Language: {language}")
-        
-        # Process based on intent
-        response_text = process_intent(intent_name, parameters, query_text, language)
+        # Use the shared processing function
+        response_text = process_webhook_request(req)
         
         return jsonify({
             'fulfillmentText': response_text
@@ -195,7 +265,7 @@ def handle_emergency(query_text, language):
     
     # General emergency response
     emergency_responses = {
-        'odia': '🚨 ଜରୁରୀକାଳୀନ ପରିସ୍ଥିତିରେ ତୁରନ୍ତ 108 ନମ୍ବରରେ ଡାକନ୍ତୁ କିମ୍ବା ନିକଟସ୍ଥ ଚିକିତ୍ସାଳୟକୁ ଯାଆନ୍ତୁ।',
+        'odia': '🚨 ଜରୁରୀକାଳୀନ ପରିସ୍ଥିତିରେ ତୁରନ୍ତ 108 ନମ୍ବରରେ ଡାକନ୍ତୁ କିମ୍ବା ନିକଟସ୍ଥ ଚିକିତ୍ସାଳୟକୁ ଯାଅନ୍ତୁ।',
         'english': '🚨 In emergency, immediately call 108 or visit nearest hospital.',
         'hindi': '🚨 आपातकाल में तुरंत 108 पर कॉल करें या निकटतम अस्पताल जाएं।'
     }
@@ -261,18 +331,25 @@ def test_endpoint():
     query = request.form.get('query', '')
     language = request.form.get('language', 'english')
     
-    # Simulate Dialogflow request
-    mock_intent = 'test'
-    mock_parameters = {}
+    # Test with Dialogflow
+    dialogflow_response = call_dialogflow_detect_intent(query, "test-session")
     
-    # Determine intent based on query
-    if any(word in query.lower() for word in ['fever', 'ଜ୍ୱର', 'बुखार']):
-        mock_intent = 'disease_info'
-        mock_parameters['disease'] = 'fever'
-    elif any(word in query.lower() for word in ['vaccine', 'ଟିକା', 'टीका']):
-        mock_intent = 'vaccine_info'
-    
-    response = process_intent(mock_intent, mock_parameters, query, language)
+    if dialogflow_response:
+        response = dialogflow_response.query_result.fulfillment_text
+        intent = dialogflow_response.query_result.intent.display_name
+        if not response:
+            # Simulate webhook if no fulfillment text
+            mock_request = {
+                'queryResult': {
+                    'intent': {'displayName': intent},
+                    'parameters': dict(dialogflow_response.query_result.parameters),
+                    'queryText': query
+                }
+            }
+            response = process_webhook_request(mock_request)
+    else:
+        response = "Dialogflow connection failed - using fallback"
+        intent = "fallback"
     
     return f'''
     <html>
@@ -280,6 +357,7 @@ def test_endpoint():
         <h2>Test Result</h2>
         <p><strong>Query:</strong> {query}</p>
         <p><strong>Language:</strong> {language}</p>
+        <p><strong>Detected Intent:</strong> {intent}</p>
         <p><strong>Response:</strong></p>
         <pre>{response}</pre>
         <br>
