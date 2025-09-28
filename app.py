@@ -207,12 +207,6 @@ def process_intent(intent_name, parameters, query_text, language):
     elif intent_name in ['disease_info', 'disease.info', 'get_disease_info']:
         disease_name = parameters.get('disease', '')
         
-        # FIX: Handle both string and list parameters from Dialogflow
-        if isinstance(disease_name, list) and disease_name:
-            disease_name = disease_name[0]
-        elif isinstance(disease_name, list):
-            disease_name = ''
-        
         if not disease_name:
             # Try to extract disease from query text
             disease_name = extract_disease_from_query(query_text)
@@ -223,12 +217,8 @@ def process_intent(intent_name, parameters, query_text, language):
     # Vaccination Intent
     elif intent_name in ['vaccine_info', 'vaccination', 'get_vaccine_info']:
         vaccine_name = parameters.get('vaccine', '')
-        
-        # FIX: Handle both string and list parameters from Dialogflow
         if isinstance(vaccine_name, list) and vaccine_name:
             vaccine_name = vaccine_name[0]
-        elif isinstance(vaccine_name, list):
-            vaccine_name = ''
 
         # Convert to string to handle any remaining objects
         vaccine_name = str(vaccine_name) if vaccine_name else ''
