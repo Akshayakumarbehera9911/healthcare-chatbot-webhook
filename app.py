@@ -156,17 +156,35 @@ def handle_whatsapp_message_fallback(message, language):
 
 def send_whatsapp_message(to_number, message):
     """Send WhatsApp message via Twilio"""
-    TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
-    TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
-    
-    url = f"https://api.twilio.com/2010-04-01/Accounts/{TWILIO_ACCOUNT_SID}/Messages.json"
-    data = {
-        'From': 'whatsapp:+14155238886',
-        'To': f'whatsapp:{to_number}',
-        'Body': message
-    }
-    
-    requests.post(url, data=data, auth=(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN))
+    try:
+        TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
+        TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
+        
+        if not TWILIO_ACCOUNT_SID or not TWILIO_AUTH_TOKEN:
+            print("ERROR: Twilio credentials not found in environment variables")
+            return False
+        
+        url = f"https://api.twilio.com/2010-04-01/Accounts/{TWILIO_ACCOUNT_SID}/Messages.json"
+        data = {
+            'From': 'whatsapp:+14155238886',  # Twilio sandbox number
+            'To': f'whatsapp:{to_number}',
+            'Body': message
+        }
+        
+        print(f"Sending WhatsApp message to {to_number}: {message[:100]}...")
+        
+        response = requests.post(url, data=data, auth=(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN))
+        
+        if response.status_code == 201:
+            print("✅ WhatsApp message sent successfully")
+            return True
+        else:
+            print(f"❌ Twilio API error: {response.status_code} - {response.text}")
+            return False
+            
+    except Exception as e:
+        print(f"❌ Error sending WhatsApp message: {str(e)}")
+        return False
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
