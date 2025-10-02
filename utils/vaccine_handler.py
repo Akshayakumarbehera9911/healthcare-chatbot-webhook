@@ -47,7 +47,15 @@ def get_vaccine_info(vaccine_name=None, language='english'):
             'rotavirus': 'rotavirus',
             'rota': 'rotavirus',
             'pcv': 'pcv',
-            'pneumococcal': 'pcv'
+            'pneumococcal': 'pcv',
+            'ipv': 'ipv',
+            'fipv': 'ipv',
+            'je': 'je_vaccine',
+            'japanese': 'je_vaccine',
+            'dpt_booster': 'dpt_booster_1',
+            'opv_booster': 'opv_booster',
+            'td': 'td_vaccine',
+            'booster': 'dpt_booster_1'
         }
         
         matched_vaccine = None
@@ -77,7 +85,13 @@ def format_single_vaccine_response(vaccine_name, vaccine_info, language):
         'hepatitis_b': {'odia': 'ହେପାଟାଇଟିସ୍ B', 'english': 'Hepatitis B', 'hindi': 'हेपेटाइटिस B'},
         'pentavalent': {'odia': 'Pentavalent', 'english': 'Pentavalent', 'hindi': 'पेंटावैलेंट'},
         'rotavirus': {'odia': 'Rotavirus', 'english': 'Rotavirus', 'hindi': 'रोटावायरस'},
-        'pcv': {'odia': 'PCV', 'english': 'PCV', 'hindi': 'PCV'}
+        'pcv': {'odia': 'PCV', 'english': 'PCV', 'hindi': 'PCV'},
+        'ipv': {'odia': 'IPV (fIPV)', 'english': 'IPV (fIPV)', 'hindi': 'IPV (fIPV)'},
+        'je_vaccine': {'odia': 'JE Vaccine', 'english': 'JE Vaccine', 'hindi': 'JE टीका'},
+        'dpt_booster_1': {'odia': 'DPT Booster-1', 'english': 'DPT Booster-1', 'hindi': 'DPT बूस्टर-1'},
+        'dpt_booster_2': {'odia': 'DPT Booster-2', 'english': 'DPT Booster-2', 'hindi': 'DPT बूस्टर-2'},
+        'opv_booster': {'odia': 'OPV Booster', 'english': 'OPV Booster', 'hindi': 'OPV बूस्टर'},
+        'td_vaccine': {'odia': 'Td Vaccine', 'english': 'Td Vaccine', 'hindi': 'Td टीका'}
     }
     
     templates = {
@@ -91,9 +105,11 @@ def format_single_vaccine_response(vaccine_name, vaccine_info, language):
 def get_complete_schedule_manual(vaccines, language):
     """Generate complete schedule manually if not in data"""
     schedules = {
-        'odia': "ଶିଶୁ ଟିକା କାର୍ଯ୍ୟସୂଚୀ:\n🔸 ଜନ୍ମ ସମୟରେ: BCG + Hepatitis B\n🔸 ୬ ସପ୍ତାହରେ: OPV + DPT + Hepatitis B\n🔸 ୧୦ ସପ୍ତାହରେ: OPV + DPT\n🔸 ୧୪ ସପ୍ତାହରେ: OPV + DPT + Hepatitis B\n🔸 ୯ ମାସରେ: Measles\n\nନିକଟସ୍ଥ ସ୍ୱାସ୍ଥ୍ୟକେନ୍ଦ୍ରରେ ଯୋଗାଯୋଗ କରନ୍ତୁ।",
-        'english': "Baby Vaccination Schedule:\n🔸 At Birth: BCG + Hepatitis B\n🔸 6 Weeks: OPV + DPT + Hepatitis B\n🔸 10 Weeks: OPV + DPT\n🔸 14 Weeks: OPV + DPT + Hepatitis B\n🔸 9 Months: Measles\n\nContact your nearest health center.",
-        'hindi': "बच्चे की टीकाकरण तालिका:\n🔸 जन्म पर: BCG + Hepatitis B\n🔸 6 सप्ताह: OPV + DPT + Hepatitis B\n🔸 10 सप्ताह: OPV + DPT\n🔸 14 सप्ताह: OPV + DPT + Hepatitis B\n🔸 9 महीने: Measles\n\nअपने नजदीकी स्वास्थ्य केंद्र से संपर्क करें।"
+        'odia': "ଶିଶୁ ଟିକା କାର୍ଯ୍ୟସୂଚୀ (NIS 2025):\n🔸 ଜନ୍ମରେ: BCG + OPV-0 + Hepatitis B\n🔸 ୬ ସପ୍ତାହ: OPV-1 + Pentavalent-1 + Rotavirus-1 + fIPV-1 + PCV-1\n🔸 ୧୦ ସପ୍ତାହ: OPV-2 + Pentavalent-2 + Rotavirus-2\n🔸 ୧୪ ସପ୍ତାହ: OPV-3 + Pentavalent-3 + fIPV-2 + Rotavirus-3 + PCV-2\n🔸 ୯-୧୨ ମାସ: MR-1 + JE-1* + PCV Booster\n🔸 ୧୬-୨୪ ମାସ: MR-2 + DPT Booster-1 + OPV Booster + JE-2*\n🔸 ୫-୬ ବର୍ଷ: DPT Booster-2\n🔸 ୧୦ ବର୍ଷ: Td\n🔸 ୧୬ ବର୍ଷ: Td\n\n*JE କେବଳ ଏଣ୍ଡେମିକ୍ ଜିଲ୍ଲାରେ\nନିକଟସ୍ଥ ସ୍ୱାସ୍ଥ୍ୟକେନ୍ଦ୍ରରେ ଯୋଗାଯୋଗ କରନ୍ତୁ।",
+        
+        'english': "Baby Vaccination Schedule (NIS 2025):\n🔸 At Birth: BCG + OPV-0 + Hepatitis B\n🔸 6 Weeks: OPV-1 + Pentavalent-1 + Rotavirus-1 + fIPV-1 + PCV-1\n🔸 10 Weeks: OPV-2 + Pentavalent-2 + Rotavirus-2\n🔸 14 Weeks: OPV-3 + Pentavalent-3 + fIPV-2 + Rotavirus-3 + PCV-2\n🔸 9-12 Months: MR-1 + JE-1* + PCV Booster\n🔸 16-24 Months: MR-2 + DPT Booster-1 + OPV Booster + JE-2*\n🔸 5-6 Years: DPT Booster-2\n🔸 10 Years: Td\n🔸 16 Years: Td\n\n*JE in endemic districts only\nContact your nearest health center.",
+        
+        'hindi': "बच्चे की टीकाकरण तालिका (NIS 2025):\n🔸 जन्म पर: BCG + OPV-0 + Hepatitis B\n🔸 6 सप्ताह: OPV-1 + Pentavalent-1 + Rotavirus-1 + fIPV-1 + PCV-1\n🔸 10 सप्ताह: OPV-2 + Pentavalent-2 + Rotavirus-2\n🔸 14 सप्ताह: OPV-3 + Pentavalent-3 + fIPV-2 + Rotavirus-3 + PCV-2\n🔸 9-12 महीने: MR-1 + JE-1* + PCV Booster\n🔸 16-24 महीने: MR-2 + DPT Booster-1 + OPV Booster + JE-2*\n🔸 5-6 साल: DPT Booster-2\n🔸 10 साल: Td\n🔸 16 साल: Td\n\n*JE केवल स्थानिक जिलों में\nअपने नजदीकी स्वास्थ्य केंद्र से संपर्क करें।"
     }
     
     return schedules.get(language, schedules['english'])
@@ -101,9 +117,9 @@ def get_complete_schedule_manual(vaccines, language):
 def get_vaccine_not_found_response(language):
     """Return response when vaccine is not found"""
     responses = {
-        'odia': "ଦୁଃଖିତ, ଏହି ଟିକା ବିଷୟରେ ମୋର ସୂଚନା ନାହିଁ। ମୁଁ BCG, OPV, DPT, Measles, Hepatitis B ବିଷୟରେ ସାହାଯ୍ୟ କରିପାରିବି।",
-        'english': "Sorry, I don't have information about this vaccine. I can help with BCG, OPV, DPT, Measles, Hepatitis B vaccines.",
-        'hindi': "खुशी, मुझे इस टीके की जानकारी नहीं है। मैं BCG, OPV, DPT, खसरा, हेपेटाइटिस B के बारे में मदद कर सकता हूं।"
+        'odia': "ଦୁଃଖିତ, ଏହି ଟିକା ବିଷୟରେ ମୋର ସୂଚନା ନାହିଁ। ମୁଁ BCG, OPV, IPV, DPT, Pentavalent, Rotavirus, PCV, MR, Hepatitis B, JE, Td ବିଷୟରେ ସାହାଯ୍ୟ କରିପାରିବି।",
+        'english': "Sorry, I don't have information about this vaccine. I can help with BCG, OPV, IPV, DPT, Pentavalent, Rotavirus, PCV, MR, Hepatitis B, JE, Td vaccines.",
+        'hindi': "खेद है, मुझे इस टीके की जानकारी नहीं है। मैं BCG, OPV, IPV, DPT, Pentavalent, Rotavirus, PCV, MR, Hepatitis B, JE, Td के बारे में मदद कर सकता हूं।"
     }
     return responses.get(language, responses['english'])
 

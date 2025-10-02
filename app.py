@@ -70,7 +70,7 @@ def health_check():
         'message': 'Healthcare Chatbot API is running',
         'supported_languages': ['odia', 'english', 'hindi'],
         'supported_diseases': ['fever', 'cold', 'malaria', 'dengue'],
-        'supported_vaccines': ['bcg', 'opv', 'dpt', 'measles', 'hepatitis_b']
+        'supported_vaccines': ['bcg', 'opv', 'ipv', 'dpt', 'pentavalent', 'rotavirus', 'pcv', 'mr_vaccine', 'hepatitis_b', 'je_vaccine', 'dpt_booster_1', 'dpt_booster_2', 'opv_booster', 'td_vaccine']
     })
 
 @app.route('/whatsapp', methods=['POST'])

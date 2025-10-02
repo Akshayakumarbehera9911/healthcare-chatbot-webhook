@@ -323,6 +323,27 @@ def normalize_vaccine_name(vaccine_input):
     'rota': 'rotavirus',
     'pcv': 'pcv',
     'pneumococcal': 'pcv',
+    'ipv': 'ipv',
+    'fipv': 'ipv',
+    'inactivated polio': 'ipv',
+    'fractional ipv': 'ipv',
+
+    'je': 'je_vaccine',
+    'japanese encephalitis': 'je_vaccine',
+    'জাপানীজ୍ ଏନସେଫାଲାଇଟିସ୍': 'je_vaccine',
+    'जापानी इंसेफेलाइटिस': 'je_vaccine',
+
+    'dpt booster': 'dpt_booster_1',
+    'dpt booster 1': 'dpt_booster_1',
+    'dpt booster 2': 'dpt_booster_2',
+
+    'opv booster': 'opv_booster',
+    'polio booster': 'opv_booster',
+
+    'td': 'td_vaccine',
+    'tetanus diphtheria': 'td_vaccine',
+    'ଟିଟାନସ୍': 'td_vaccine',
+    'टिटनस': 'td_vaccine',
     
     'vaccine': 'complete',
     'vaccination': 'complete',

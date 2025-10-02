@@ -8,9 +8,9 @@
     "description_hindi": "तपेदिक से बचाता है"
   },
   "opv": {
-    "age_odia": "୬ ସପ୍ତାହ, ୧୦ ସପ୍ତାହ, ୧୪ ସପ୍ତାହ",
-    "age_english": "6 weeks, 10 weeks, 14 weeks",
-    "age_hindi": "6 सप्ताह, 10 सप्ताह, 14 सप्ताह",
+    "age_odia": "ଜନ୍ମରେ (0), ୬, ୧୦, ୧୪ ସପ୍ତାହ",
+    "age_english": "At birth (0), 6, 10, 14 weeks",
+    "age_hindi": "जन्म पर (0), 6, 10, 14 सप्ताह",
     "description_odia": "ପୋଲିଓ ରୋଗରୁ ରକ୍ଷା କରେ",
     "description_english": "Protects against polio",
     "description_hindi": "पोलियो से बचाता है"
@@ -56,19 +56,67 @@
     "description_hindi": "गंभीर दस्त से बचाता है"
   },
   "pcv": {
-    "age_odia": "୬ ସପ୍ତାହ, ୧୪ ସପ୍ତାହ, ୯-୧୨ ମାସ",
-    "age_english": "6 weeks, 14 weeks, 9-12 months",
-    "age_hindi": "6 सप्ताह, 14 सप्ताह, 9-12 महीने",
+    "age_odia": "୬, ୧୪ ସପ୍ତାହ + ୯-୧୨ ମାସରେ ବୁଷ୍ଟର",
+    "age_english": "6, 14 weeks + Booster at 9-12 months",
+    "age_hindi": "6, 14 सप्ताह + 9-12 महीने में बूस्टर",
     "description_odia": "ନିମୋନିଆ ରୁ ରକ୍ଷା କରେ",
     "description_english": "Protects against pneumonia",
     "description_hindi": "निमोनिया से बचाता है"
   },
+  "ipv": {
+  "age_odia": "୬ ଓ ୧୪ ସପ୍ତାହରେ (fIPV)",
+  "age_english": "6 and 14 weeks (fractional dose)",
+  "age_hindi": "6 और 14 सप्ताह (आंशिक खुराक)",
+  "description_odia": "ପୋଲିଓ ରୁ ଅତିରିକ୍ତ ସୁରକ୍ଷା",
+  "description_english": "Additional protection against polio",
+  "description_hindi": "पोलियो से अतिरिक्त सुरक्षा"
+  },
+  "je_vaccine": {
+    "age_odia": "୯-୧୨ ମାସ, ୧୬-୨୪ ମାସ",
+    "age_english": "9-12 months, 16-24 months",
+    "age_hindi": "9-12 महीने, 16-24 महीने",
+    "description_odia": "ଜାପାନୀଜ୍ ଏନସେଫାଲାଇଟିସ୍ ରୁ ରକ୍ଷା (କେବଳ ଏଣ୍ଡେମିକ୍ ଜିଲ୍ଲାରେ)",
+    "description_english": "Protects against Japanese Encephalitis (endemic districts only)",
+    "description_hindi": "जापानी इंसेफेलाइटिस से बचाता है (केवल स्थानिक जिलों में)"
+  },
+  "dpt_booster_1": {
+    "age_odia": "୧୬-୨୪ ମାସ",
+    "age_english": "16-24 months",
+    "age_hindi": "16-24 महीने",
+    "description_odia": "DPT ବୁଷ୍ଟର ଡୋଜ୍",
+    "description_english": "DPT booster dose",
+    "description_hindi": "डीपीटी बूस्टर डोज"
+  },
+  "opv_booster": {
+    "age_odia": "୧୬-୨୪ ମାସ",
+    "age_english": "16-24 months",
+    "age_hindi": "16-24 महीने",
+    "description_odia": "ପୋଲିଓ ବୁଷ୍ଟର",
+    "description_english": "Polio booster",
+    "description_hindi": "पोलियो बूस्टर"
+  },
+  "dpt_booster_2": {
+    "age_odia": "୫-୬ ବର୍ଷ",
+    "age_english": "5-6 years",
+    "age_hindi": "5-6 साल",
+    "description_odia": "DPT ଦ୍ୱିତୀୟ ବୁଷ୍ଟର",
+    "description_english": "DPT second booster",
+    "description_hindi": "डीपीटी दूसरा बूस्टर"
+  },
+  "td_vaccine": {
+    "age_odia": "୧୦ ଓ ୧୬ ବର୍ଷ",
+    "age_english": "10 and 16 years",
+    "age_hindi": "10 और 16 साल",
+    "description_odia": "ଟିଟାନସ୍ ଓ ଡିପଥେରିଆ ସୁରକ୍ଷା",
+    "description_english": "Tetanus and Diphtheria protection",
+    "description_hindi": "टिटनस और डिप्थीरिया सुरक्षा"
+  },
 
   "complete_schedule": {
-    "odia": "ଶିଶୁ ଟିକା କାର୍ଯ୍ୟସୂଚୀ (2025):\n🔸 ଜନ୍ମ ସମୟରେ: BCG + Hepatitis B\n🔸 ୬ ସପ୍ତାହରେ: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 ୧୦ ସପ୍ତାହରେ: OPV + Pentavalent + Rotavirus\n🔸 ୧୪ ସପ୍ତାହରେ: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 ୯-୧୨ ମାସରେ: MR Vaccine + PCV Booster\n🔸 ୧୬-୨୪ ମାସରେ: MR Vaccine (2nd dose)\n\nନିକଟସ୍ଥ ସ୍ୱାସ୍ଥ୍ୟକେନ୍ଦ୍ରରେ ଯୋଗାଯୋଗ କରନ୍ତୁ।",
-    
-    "english": "Baby Vaccination Schedule (2025):\n🔸 🔸 At Birth: BCG + OPV-0 + Hepatitis B\n🔸 6 Weeks: OPV-1 + Pentavalent-1 + Rotavirus-1 + PCV-1\n🔸 10 Weeks: OPV + Pentavalent + Rotavirus\n🔸 14 Weeks: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 9-12 Months: MR Vaccine + PCV Booster\n🔸 16-24 Months: MR Vaccine (2nd dose)\n\nContact your nearest health center.",
-    
-    "hindi": "बच्चे की टीकाकरण तालिका (2025):\n🔸 जन्म पर: BCG + Hepatitis B\n🔸 6 सप्ताह: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 10 सप्ताह: OPV + Pentavalent + Rotavirus\n🔸 14 सप्ताह: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 9-12 महीने: MR Vaccine + PCV Booster\n🔸 16-24 महीने: MR Vaccine (2nd dose)\n\nअपने नजदीकी स्वास्थ्य केंद्र से संपर्क करें।"
+  "odia": "ଶିଶୁ ଟିକା କାର୍ଯ୍ୟସୂଚୀ (NIS 2025):\n🔸 ଜନ୍ମରେ: BCG + OPV-0 + Hepatitis B\n🔸 ୬ ସପ୍ତାହ: OPV-1 + Pentavalent-1 + Rotavirus-1 + fIPV-1 + PCV-1\n🔸 ୧୦ ସପ୍ତାହ: OPV-2 + Pentavalent-2 + Rotavirus-2\n🔸 ୧୪ ସପ୍ତାହ: OPV-3 + Pentavalent-3 + fIPV-2 + Rotavirus-3 + PCV-2\n🔸 ୯-୧୨ ମାସ: MR-1 + JE-1* + PCV Booster\n🔸 ୧୬-୨୪ ମାସ: MR-2 + DPT Booster-1 + OPV Booster + JE-2*\n🔸 ୫-୬ ବର୍ଷ: DPT Booster-2\n🔸 ୧୦ ବର୍ଷ: Td\n🔸 ୧୬ ବର୍ଷ: Td\n\n*JE କେବଳ ଏଣ୍ଡେମିକ୍ ଜିଲ୍ଲାରେ\nନିକଟସ୍ଥ ସ୍ୱାସ୍ଥ୍ୟକେନ୍ଦ୍ରରେ ଯୋଗାଯୋଗ କରନ୍ତୁ।",
+
+  "english": "Baby Vaccination Schedule (NIS 2025):\n🔸 At Birth: BCG + OPV-0 + Hepatitis B\n🔸 6 Weeks: OPV-1 + Pentavalent-1 + Rotavirus-1 + fIPV-1 + PCV-1\n🔸 10 Weeks: OPV-2 + Pentavalent-2 + Rotavirus-2\n🔸 14 Weeks: OPV-3 + Pentavalent-3 + fIPV-2 + Rotavirus-3 + PCV-2\n🔸 9-12 Months: MR-1 + JE-1* + PCV Booster\n🔸 16-24 Months: MR-2 + DPT Booster-1 + OPV Booster + JE-2*\n🔸 5-6 Years: DPT Booster-2\n🔸 10 Years: Td\n🔸 16 Years: Td\n\n*JE in endemic districts only\nContact your nearest health center.",
+
+  "hindi": "बच्चे की टीकाकरण तालिका (NIS 2025):\n🔸 जन्म पर: BCG + OPV-0 + Hepatitis B\n🔸 6 सप्ताह: OPV-1 + Pentavalent-1 + Rotavirus-1 + fIPV-1 + PCV-1\n🔸 10 सप्ताह: OPV-2 + Pentavalent-2 + Rotavirus-2\n🔸 14 सप्ताह: OPV-3 + Pentavalent-3 + fIPV-2 + Rotavirus-3 + PCV-2\n🔸 9-12 महीने: MR-1 + JE-1* + PCV Booster\n🔸 16-24 महीने: MR-2 + DPT Booster-1 + OPV Booster + JE-2*\n🔸 5-6 साल: DPT Booster-2\n🔸 10 साल: Td\n🔸 16 साल: Td\n\n*JE केवल स्थानिक जिलों में\nअपने नजदीकी स्वास्थ्य केंद्र से संपर्क करें।"
   }
 }
