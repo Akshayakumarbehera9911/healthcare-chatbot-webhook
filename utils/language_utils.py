@@ -119,10 +119,10 @@ def normalize_disease_name(disease_input):
         
         # Cold mappings
         'cold': 'cold',
+        'common cold': 'cold',
         'ଶର୍ଦି': 'cold',
         'sardi': 'cold',
         'सर्दी': 'cold',
-        'cough': 'cold',
         
         # Malaria mappings
         'malaria': 'malaria',
@@ -131,8 +131,149 @@ def normalize_disease_name(disease_input):
         
         # Dengue mappings
         'dengue': 'dengue',
+        'dengue fever': 'dengue',
         'ଡେଙ୍ଗୁ': 'dengue',
-        'डेंगू': 'dengue'
+        'डेंगू': 'dengue',
+        
+        # Asthma mappings
+        'asthma': 'asthma',
+        'ଆଜମା': 'asthma',
+        'अस्थमा': 'asthma',
+        
+        # Diabetes mappings
+        'diabetes': 'diabetes',
+        'diabetes mellitus': 'diabetes',
+        'ଡାଏବେଟିସ୍': 'diabetes',
+        'ଡାଏବେଟିସ': 'diabetes',
+        'डायबिटीज': 'diabetes',
+        'मधुमेह': 'diabetes',
+        
+        # Hypertension mappings
+        'hypertension': 'hypertension',
+        'high blood pressure': 'hypertension',
+        'ଉଚ୍ଚ ରକ୍ତଚାପ': 'hypertension',
+        'उच्च रक्तचाप': 'hypertension',
+        
+        # Diarrhea mappings
+        'diarrhea': 'diarrhea',
+        'diarrhoea': 'diarrhea',
+        'loose motion': 'diarrhea',
+        'ଝାଡ଼ା': 'diarrhea',
+        'jhada': 'diarrhea',
+        'दस्त': 'diarrhea',
+        'लूज मोशन': 'diarrhea',
+        
+        # Typhoid mappings
+        'typhoid': 'typhoid',
+        'typhoid fever': 'typhoid',
+        'ଟାଇଫଏଡ୍': 'typhoid',
+        'ଟାଇଫଏଡ': 'typhoid',
+        'टाइफाइड': 'typhoid',
+        
+        # Tuberculosis mappings
+        'tuberculosis': 'tuberculosis',
+        'tb': 'tuberculosis',
+        'ଯକ୍ଷ୍ମା': 'tuberculosis',
+        'yakshma': 'tuberculosis',
+        'तपेदिक': 'tuberculosis',
+        'क्षय रोग': 'tuberculosis',
+        
+        # Jaundice mappings
+        'jaundice': 'jaundice',
+        'ଜଣ୍ଡିସ୍': 'jaundice',
+        'ଜଣ୍ଡିସ': 'jaundice',
+        'jandis': 'jaundice',
+        'पीलिया': 'jaundice',
+        
+        # Chickenpox mappings
+        'chickenpox': 'chickenpox',
+        'chicken pox': 'chickenpox',
+        'varicella': 'chickenpox',
+        'ଚିକେନ୍‌ପକ୍ସ': 'chickenpox',
+        'चिकनपॉक्स': 'chickenpox',
+        
+        # Migraine mappings
+        'migraine': 'migraine',
+        'migraine headache': 'migraine',
+        'ମାଇଗ୍ରେନ୍': 'migraine',
+        'माइग्रेन': 'migraine',
+        
+        # Gastritis mappings
+        'gastritis': 'gastritis',
+        'ଗ୍ୟାଷ୍ଟ୍ରାଇଟିସ୍': 'gastritis',
+        'गैस्ट्राइटिस': 'gastritis',
+        
+        # Anemia mappings
+        'anemia': 'anemia',
+        'anaemia': 'anemia',
+        'ରକ୍ତହୀନତା': 'anemia',
+        'एनीमिया': 'anemia',
+        'खून की कमी': 'anemia',
+        
+        # Pneumonia mappings
+        'pneumonia': 'pneumonia',
+        'ନିମୋନିଆ': 'pneumonia',
+        'निमोनिया': 'pneumonia',
+        
+        # Kidney stone mappings
+        'kidney stone': 'kidney_stone',
+        'kidney stones': 'kidney_stone',
+        'renal stone': 'kidney_stone',
+        'renal calculi': 'kidney_stone',
+        'କିଡନୀ ପଥର': 'kidney_stone',
+        'किडनी स्टोन': 'kidney_stone',
+        'पथरी': 'kidney_stone',
+        
+        # Hepatitis mappings
+        'hepatitis': 'hepatitis',
+        'ହେପାଟାଇଟିସ୍': 'hepatitis',
+        'हेपेटाइटिस': 'hepatitis',
+        
+        # Arthritis mappings
+        'arthritis': 'arthritis',
+        'ଆର୍ଥ୍ରାଇଟିସ୍': 'arthritis',
+        'गठिया': 'arthritis',
+        
+        # Ulcer mappings
+        'ulcer': 'ulcer',
+        'stomach ulcer': 'ulcer',
+        'peptic ulcer': 'ulcer',
+        'gastric ulcer': 'ulcer',
+        'ଅଲସର୍': 'ulcer',
+        'अल्सर': 'ulcer',
+        
+        # Thyroid mappings
+        'thyroid': 'thyroid',
+        'thyroid disorder': 'thyroid',
+        'ଥାଇରଏଡ୍': 'thyroid',
+        'थायराइड': 'thyroid',
+        'hypothyroidism': 'thyroid',
+        'hyperthyroidism': 'thyroid',
+        
+        # Bronchitis mappings
+        'bronchitis': 'bronchitis',
+        'ବ୍ରୋଙ୍କାଇଟିସ୍': 'bronchitis',
+        'ब्रोंकाइटिस': 'bronchitis',
+        
+        # Scabies mappings
+        'scabies': 'scabies',
+        'ସ୍କାବିଜ୍': 'scabies',
+        'स्केबीज': 'scabies',
+        'खुजली': 'scabies',
+        
+        # UTI mappings
+        'urinary tract infection': 'urinary_tract_infection',
+        'uti': 'urinary_tract_infection',
+        'urine infection': 'urinary_tract_infection',
+        'ମୂତ୍ରନଳୀ ସଂକ୍ରମଣ': 'urinary_tract_infection',
+        'मूत्र पथ संक्रमण': 'urinary_tract_infection',
+        
+        # Conjunctivitis mappings
+        'conjunctivitis': 'conjunctivitis',
+        'pink eye': 'conjunctivitis',
+        'କଞ୍ଜଙ୍କଟିଭାଇଟିସ୍': 'conjunctivitis',
+        'कंजंक्टिवाइटिस': 'conjunctivitis',
+        'आंख आना': 'conjunctivitis'
     }
     
     if not disease_input:
@@ -174,12 +315,7 @@ def normalize_vaccine_name(vaccine_input):
         'ହେପାଟାଇଟିସ': 'hepatitis_b',
         'हेपेटाइटिस': 'hepatitis_b',
         
-        # Asthma mappings
-        'asthma': 'asthma',
-        'ଆଜମା': 'asthma',
-        'अस्थमा': 'asthma',
-        'wheeze': 'asthma',
-        'breathing problem': 'asthma'
+        
     }
     
     if not vaccine_input:

@@ -266,11 +266,32 @@ def process_intent(intent_name, parameters, query_text, language):
 def extract_disease_from_query(query_text):
     """Extract disease name from user query"""
     disease_keywords = {
-        'fever': ['fever', 'ଜ୍ୱର', 'jwara', 'बुखार', 'bukhar', 'temperature', 'temp'],
-        'cold': ['cold', 'ଶର୍ଦି', 'sardi', 'सर्दी', 'cough', 'କାଶ', 'खांसी'],
-        'malaria': ['malaria', 'ମଲେରିଆ', 'मलेरिया'],
-        'dengue': ['dengue', 'ଡେଙ୍ଗୁ', 'डेंगू']
-    }
+    'fever': ['fever', 'ଜ୍ୱର', 'jwara', 'बुखार', 'bukhar'],
+    'cold': ['cold', 'ଶର୍ଦି', 'sardi', 'सर्दी', 'common cold'],
+    'malaria': ['malaria', 'ମଲେରିଆ', 'मलेरिया'],
+    'dengue': ['dengue', 'ଡେଙ୍ଗୁ', 'डेंगू', 'dengue fever'],
+    'asthma': ['asthma', 'ଆଜମା', 'अस्थमा'],
+    'diabetes': ['diabetes', 'ଡାଏବେଟିସ୍', 'ଡାଏବେଟିସ', 'डायबिटीज', 'मधुमेह', 'diabetes mellitus'],
+    'hypertension': ['hypertension', 'high blood pressure', 'ଉଚ୍ଚ ରକ୍ତଚାପ', 'उच्च रक्तचाप'],
+    'diarrhea': ['diarrhea', 'diarrhoea', 'loose motion', 'ଝାଡ଼ା', 'jhada', 'दस्त', 'लूज मोशन'],
+    'typhoid': ['typhoid', 'typhoid fever', 'ଟାଇଫଏଡ୍', 'ଟାଇଫଏଡ', 'टाइफाइड'],
+    'tuberculosis': ['tuberculosis', 'tb', 'ଯକ୍ଷ୍ମା', 'yakshma', 'तपेदिक', 'क्षय रोग'],
+    'jaundice': ['jaundice', 'ଜଣ୍ଡିସ୍', 'ଜଣ୍ଡିସ', 'jandis', 'पीलिया'],
+    'chickenpox': ['chickenpox', 'chicken pox', 'ଚିକେନ୍‌ପକ୍ସ', 'चिकनपॉक्स', 'varicella'],
+    'migraine': ['migraine', 'migraine headache', 'ମାଇଗ୍ରେନ୍', 'माइग्रेन'],
+    'gastritis': ['gastritis', 'ଗ୍ୟାଷ୍ଟ୍ରାଇଟିସ୍', 'गैस्ट्राइटिस'],
+    'anemia': ['anemia', 'anaemia', 'ରକ୍ତହୀନତା', 'एनीमिया', 'खून की कमी'],
+    'pneumonia': ['pneumonia', 'ନିମୋନିଆ', 'निमोनिया'],
+    'kidney_stone': ['kidney stone', 'kidney stones', 'renal stone', 'renal calculi', 'କିଡନୀ ପଥର', 'किडनी स्टोन', 'पथरी'],
+    'hepatitis': ['hepatitis', 'ହେପାଟାଇଟିସ୍', 'हेपेटाइटिस'],
+    'arthritis': ['arthritis', 'ଆର୍ଥ୍ରାଇଟିସ୍', 'गठिया'],
+    'ulcer': ['ulcer', 'stomach ulcer', 'peptic ulcer', 'gastric ulcer', 'ଅଲସର୍', 'अल्सर'],
+    'thyroid': ['thyroid', 'thyroid disorder', 'ଥାଇରଏଡ୍', 'थायराइड', 'hypothyroidism', 'hyperthyroidism'],
+    'bronchitis': ['bronchitis', 'ବ୍ରୋଙ୍କାଇଟିସ୍', 'ब्रोंकाइटिस'],
+    'scabies': ['scabies', 'ସ୍କାବିଜ୍', 'स्केबीज', 'खुजली'],
+    'urinary_tract_infection': ['urinary tract infection', 'uti', 'urine infection', 'ମୂତ୍ରନଳୀ ସଂକ୍ରମଣ', 'मूत्र पथ संक्रमण'],
+    'conjunctivitis': ['conjunctivitis', 'pink eye', 'କଞ୍ଜଙ୍କଟିଭାଇଟିସ୍', 'कंजंक्टिवाइटिस', 'आंख आना']
+}
     
     query_lower = query_text.lower()
     for disease, keywords in disease_keywords.items():
