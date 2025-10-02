@@ -315,6 +315,13 @@ def normalize_vaccine_name(vaccine_input):
         'ହେପାଟାଇଟିସ': 'hepatitis_b',
         'हेपेटाइटिस': 'hepatitis_b',
         
+        'vaccine': 'complete',
+        'vaccination': 'complete',
+        'टीका': 'complete',
+        'ଟିକା': 'complete',
+        'baby': 'complete',
+        'schedule': 'complete'
+        
         
     }
     
