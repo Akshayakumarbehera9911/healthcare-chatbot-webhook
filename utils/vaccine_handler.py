@@ -38,9 +38,17 @@ def get_vaccine_info(vaccine_name=None, language='english'):
             'diphtheria': 'dpt',
             'pertussis': 'dpt', 
             'tetanus': 'dpt',
-            'measles': 'measles',
+            'measles': 'mr_vaccine',
+            'mr': 'mr_vaccine',
             'hepatitis': 'hepatitis_b',
-            'hepatitis_b': 'hepatitis_b'
+            'hepatitis_b': 'hepatitis_b',
+            'pentavalent': 'pentavalent',
+            'penta': 'pentavalent',
+            'rotavirus': 'rotavirus',
+            'rota': 'rotavirus',
+            'pcv': 'pcv',
+            'pneumococcal': 'pcv',
+            'ipv': 'ipv'
         }
         
         matched_vaccine = None
@@ -66,8 +74,12 @@ def format_single_vaccine_response(vaccine_name, vaccine_info, language):
         'bcg': {'odia': 'BCG', 'english': 'BCG', 'hindi': 'BCG'},
         'opv': {'odia': 'OPV (ପୋଲିଓ)', 'english': 'OPV (Polio)', 'hindi': 'OPV (पोलियो)'},
         'dpt': {'odia': 'DPT', 'english': 'DPT', 'hindi': 'DPT'},
-        'measles': {'odia': 'ହମ୍ପ ଟିକା', 'english': 'Measles Vaccine', 'hindi': 'खसरा टीका'},
-        'hepatitis_b': {'odia': 'ହେପାଟାଇଟିସ୍ B', 'english': 'Hepatitis B', 'hindi': 'हेपेटाइटिस B'}
+        'mr_vaccine': {'odia': 'MR Vaccine', 'english': 'MR Vaccine', 'hindi': 'MR टीका'},
+        'hepatitis_b': {'odia': 'ହେପାଟାଇଟିସ୍ B', 'english': 'Hepatitis B', 'hindi': 'हेपेटाइटिस B'},
+        'pentavalent': {'odia': 'Pentavalent', 'english': 'Pentavalent', 'hindi': 'पेंटावैलेंट'},
+        'rotavirus': {'odia': 'Rotavirus', 'english': 'Rotavirus', 'hindi': 'रोटावायरस'},
+        'pcv': {'odia': 'PCV', 'english': 'PCV', 'hindi': 'PCV'},
+        'ipv': {'odia': 'IPV', 'english': 'IPV', 'hindi': 'IPV'}
     }
     
     templates = {

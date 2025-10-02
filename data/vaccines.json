@@ -23,14 +23,6 @@
     "description_english": "Protects against Diphtheria, Pertussis, Tetanus",
     "description_hindi": "डिप्थीरिया, काली खांसी, टिटनस से बचाता है"
   },
-  "measles": {
-    "age_odia": "୯ ମାସ",
-    "age_english": "9 months",
-    "age_hindi": "9 महीने",
-    "description_odia": "ହମ୍ପ ରୋଗରୁ ରକ୍ଷା କରେ",
-    "description_english": "Protects against measles",
-    "description_hindi": "खसरा से बचाता है"
-  },
   "hepatitis_b": {
     "age_odia": "ଜନ୍ମ, ୬ ସପ୍ତାହ, ୧୪ ସପ୍ତାହ",
     "age_english": "Birth, 6 weeks, 14 weeks",
@@ -39,9 +31,51 @@
     "description_english": "Protects against Hepatitis B",
     "description_hindi": "हेपेटाइटिस बी से बचाता है"
   },
+  "mr_vaccine": {
+    "age_odia": "୯-୧୨ ମାସ, ୧୬-୨୪ ମାସ",
+    "age_english": "9-12 months, 16-24 months",
+    "age_hindi": "9-12 महीने, 16-24 महीने",
+    "description_odia": "ହମ୍ପ ଏବଂ ରୁବେଲା ରୋଗରୁ ରକ୍ଷା କରେ",
+    "description_english": "Protects against measles and rubella",
+    "description_hindi": "खसरा और रूबेला से बचाता है"
+  },
+  "pentavalent": {
+    "age_odia": "୬ ସପ୍ତାହ, ୧୦ ସପ୍ତାହ, ୧୪ ସପ୍ତାହ",
+    "age_english": "6 weeks, 10 weeks, 14 weeks",
+    "age_hindi": "6 सप्ताह, 10 सप्ताह, 14 सप्ताह",
+    "description_odia": "5-in-1 vaccine - DPT, Hepatitis B ଏବଂ Hib",
+    "description_english": "5-in-1 vaccine - DPT, Hepatitis B and Hib",
+    "description_hindi": "5-in-1 टीका - डीपीटी, हेपेटाइटिस बी और Hib"
+  },
+  "rotavirus": {
+    "age_odia": "୬ ସପ୍ତାହ, ୧୦ ସପ୍ତାହ, ୧୪ ସପ୍ତାହ",
+    "age_english": "6 weeks, 10 weeks, 14 weeks",
+    "age_hindi": "6 सप्ताह, 10 सप्ताह, 14 सप्ताह",
+    "description_odia": "ଝାଡ଼ା ରୋଗରୁ ରକ୍ଷା କରେ",
+    "description_english": "Protects against severe diarrhea",
+    "description_hindi": "गंभीर दस्त से बचाता है"
+  },
+  "pcv": {
+    "age_odia": "୬ ସପ୍ତାହ, ୧୪ ସପ୍ତାହ, ୯-୧୨ ମାସ",
+    "age_english": "6 weeks, 14 weeks, 9-12 months",
+    "age_hindi": "6 सप्ताह, 14 सप्ताह, 9-12 महीने",
+    "description_odia": "ନିମୋନିଆ ରୁ ରକ୍ଷା କରେ",
+    "description_english": "Protects against pneumonia",
+    "description_hindi": "निमोनिया से बचाता है"
+  },
+  "ipv": {
+    "age_odia": "୬ ସପ୍ତାହ, ୧୪ ସପ୍ତାହ",
+    "age_english": "6 weeks, 14 weeks",
+    "age_hindi": "6 सप्ताह, 14 सप्ताह",
+    "description_odia": "ପୋଲିଓ (injection)",
+    "description_english": "Polio injection",
+    "description_hindi": "पोलियो इंजेक्शन"
+  },
   "complete_schedule": {
-    "odia": "ଶିଶୁ ଟିକା କାର୍ଯ୍ୟସୂଚୀ:\n🔸 ଜନ୍ମ ସମୟରେ: BCG + Hepatitis B\n🔸 ୬ ସପ୍ତାହରେ: OPV + DPT + Hepatitis B\n🔸 ୧୦ ସପ୍ତାହରେ: OPV + DPT\n🔸 ୧୪ ସପ୍ତାହରେ: OPV + DPT + Hepatitis B\n🔸 ୯ ମାସରେ: Measles\n\nନିକଟସ୍ଥ ସ୍ୱାସ୍ଥ୍ୟକେନ୍ଦ୍ରରେ ଯୋଗାଯୋଗ କରନ୍ତୁ।",
-    "english": "Baby Vaccination Schedule:\n🔸 At Birth: BCG + Hepatitis B\n🔸 6 Weeks: OPV + DPT + Hepatitis B\n🔸 10 Weeks: OPV + DPT\n🔸 14 Weeks: OPV + DPT + Hepatitis B\n🔸 9 Months: Measles\n\nContact your nearest health center.",
-    "hindi": "बच्चे की टीकाकरण तालिका:\n🔸 जन्म पर: BCG + Hepatitis B\n🔸 6 सप्ताह: OPV + DPT + Hepatitis B\n🔸 10 सप्ताह: OPV + DPT\n🔸 14 सप्ताह: OPV + DPT + Hepatitis B\n🔸 9 महीने: Measles\n\nअपने नजदीकी स्वास्थ्य केंद्र से संपर्क करें।"
+    "odia": "ଶିଶୁ ଟିକା କାର୍ଯ୍ୟସୂଚୀ (2025):\n🔸 ଜନ୍ମ ସମୟରେ: BCG + Hepatitis B\n🔸 ୬ ସପ୍ତାହରେ: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 ୧୦ ସପ୍ତାହରେ: OPV + Pentavalent + Rotavirus\n🔸 ୧୪ ସପ୍ତାହରେ: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 ୯-୧୨ ମାସରେ: MR Vaccine + PCV Booster\n🔸 ୧୬-୨୪ ମାସରେ: MR Vaccine (2nd dose)\n\nନିକଟସ୍ଥ ସ୍ୱାସ୍ଥ୍ୟକେନ୍ଦ୍ରରେ ଯୋଗାଯୋଗ କରନ୍ତୁ।",
+    
+    "english": "Baby Vaccination Schedule (2025):\n🔸 At Birth: BCG + Hepatitis B\n🔸 6 Weeks: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 10 Weeks: OPV + Pentavalent + Rotavirus\n🔸 14 Weeks: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 9-12 Months: MR Vaccine + PCV Booster\n🔸 16-24 Months: MR Vaccine (2nd dose)\n\nContact your nearest health center.",
+    
+    "hindi": "बच्चे की टीकाकरण तालिका (2025):\n🔸 जन्म पर: BCG + Hepatitis B\n🔸 6 सप्ताह: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 10 सप्ताह: OPV + Pentavalent + Rotavirus\n🔸 14 सप्ताह: OPV + IPV + Pentavalent + Rotavirus + PCV\n🔸 9-12 महीने: MR Vaccine + PCV Booster\n🔸 16-24 महीने: MR Vaccine (2nd dose)\n\nअपने नजदीकी स्वास्थ्य केंद्र से संपर्क करें।"
   }
 }

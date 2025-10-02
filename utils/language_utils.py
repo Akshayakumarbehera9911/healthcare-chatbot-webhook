@@ -295,34 +295,42 @@ def normalize_disease_name(disease_input):
 def normalize_vaccine_name(vaccine_input):
     """Normalize vaccine name from different languages"""
     vaccine_mapping = {
-        'bcg': 'bcg',
-        'polio': 'opv',
-        'opv': 'opv',
-        'ପୋଲିଓ': 'opv',
-        'पोलियो': 'opv',
-        
-        'dpt': 'dpt',
-        'diphtheria': 'dpt',
-        'pertussis': 'dpt',
-        'tetanus': 'dpt',
-        
-        'measles': 'measles',
-        'ହମ୍ପ': 'measles',
-        'खसरा': 'measles',
-        
-        'hepatitis': 'hepatitis_b',
-        'hepatitis b': 'hepatitis_b',
-        'ହେପାଟାଇଟିସ': 'hepatitis_b',
-        'हेपेटाइटिस': 'hepatitis_b',
-        
-        'vaccine': 'complete',
-        'vaccination': 'complete',
-        'टीका': 'complete',
-        'ଟିକା': 'complete',
-        'baby': 'complete',
-        'schedule': 'complete'
-        
-        
+    'bcg': 'bcg',
+    'polio': 'opv',
+    'opv': 'opv',
+    'ପୋଲିଓ': 'opv',
+    'पोलियो': 'opv',
+    
+    'dpt': 'dpt',
+    'diphtheria': 'dpt',
+    'pertussis': 'dpt',
+    'tetanus': 'dpt',
+    
+    'measles': 'mr_vaccine',
+    'ହମ୍ପ': 'mr_vaccine',
+    'खसरा': 'mr_vaccine',
+    'mr': 'mr_vaccine',
+    'measles rubella': 'mr_vaccine',
+    
+    'hepatitis': 'hepatitis_b',
+    'hepatitis b': 'hepatitis_b',
+    'ହେପାଟାଇଟିସ': 'hepatitis_b',
+    'हेपेटाइटिस': 'hepatitis_b',
+    
+    'pentavalent': 'pentavalent',
+    'penta': 'pentavalent',
+    'rotavirus': 'rotavirus',
+    'rota': 'rotavirus',
+    'pcv': 'pcv',
+    'pneumococcal': 'pcv',
+    'ipv': 'ipv',
+    
+    'vaccine': 'complete',
+    'vaccination': 'complete',
+    'टीका': 'complete',
+    'ଟିକା': 'complete',
+    'baby': 'complete',
+    'schedule': 'complete'
     }
     
     if not vaccine_input:
