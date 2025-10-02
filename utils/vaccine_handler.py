@@ -47,8 +47,7 @@ def get_vaccine_info(vaccine_name=None, language='english'):
             'rotavirus': 'rotavirus',
             'rota': 'rotavirus',
             'pcv': 'pcv',
-            'pneumococcal': 'pcv',
-            'ipv': 'ipv'
+            'pneumococcal': 'pcv'
         }
         
         matched_vaccine = None
@@ -78,8 +77,7 @@ def format_single_vaccine_response(vaccine_name, vaccine_info, language):
         'hepatitis_b': {'odia': 'ହେପାଟାଇଟିସ୍ B', 'english': 'Hepatitis B', 'hindi': 'हेपेटाइटिस B'},
         'pentavalent': {'odia': 'Pentavalent', 'english': 'Pentavalent', 'hindi': 'पेंटावैलेंट'},
         'rotavirus': {'odia': 'Rotavirus', 'english': 'Rotavirus', 'hindi': 'रोटावायरस'},
-        'pcv': {'odia': 'PCV', 'english': 'PCV', 'hindi': 'PCV'},
-        'ipv': {'odia': 'IPV', 'english': 'IPV', 'hindi': 'IPV'}
+        'pcv': {'odia': 'PCV', 'english': 'PCV', 'hindi': 'PCV'}
     }
     
     templates = {

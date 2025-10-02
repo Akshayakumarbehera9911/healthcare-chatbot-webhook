@@ -323,7 +323,6 @@ def normalize_vaccine_name(vaccine_input):
     'rota': 'rotavirus',
     'pcv': 'pcv',
     'pneumococcal': 'pcv',
-    'ipv': 'ipv',
     
     'vaccine': 'complete',
     'vaccination': 'complete',
